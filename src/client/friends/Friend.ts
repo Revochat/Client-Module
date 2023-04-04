@@ -15,12 +15,4 @@ export class Friend {
         public remove(id: number): void {
             this.Socket.emit('friendRemove', id);
         }
-    
-        public block(id: number): void {
-            this.Socket.emit('userBlockedAdd', id);
-        }
-    
-        public unblock(id: number): void {
-            this.Socket.emit('userBlockedRemove', id);
-        }
 }
