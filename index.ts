@@ -1,1 +1,3 @@
-export default "./src"
+import Revochat from "./src"
+
+export default Revochat

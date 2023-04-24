@@ -1,4 +1,4 @@
-import Revochat from "../src";
+import Revochat from "../";
 
 const client = new Revochat.Client(); // Create a new client for the sender of the message
 
