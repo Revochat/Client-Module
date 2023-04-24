@@ -1,2 +1,1 @@
-import Revochat from "./src";
-
+export * from "./src"
