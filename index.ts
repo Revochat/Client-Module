@@ -1,1 +1,1 @@
-export * from "./src"
+export default "./src"
