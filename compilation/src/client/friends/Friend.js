@@ -12,5 +12,18 @@ class Friend {
     remove(id) {
         this.Socket.emit('friendRemove', id);
     }
+    get list() {
+        return new Promise((resolve, reject) => {
+            this.Socket.emit('friendGet');
+            this.Socket.on('friendGet', (data) => {
+                if (data) {
+                    resolve(data);
+                }
+                else {
+                    reject("Invalid token");
+                }
+            });
+        });
+    }
 }
 exports.Friend = Friend;
