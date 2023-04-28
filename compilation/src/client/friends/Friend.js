@@ -25,5 +25,18 @@ class Friend {
             });
         });
     }
+    get received() {
+        return new Promise((resolve, reject) => {
+            this.Socket.emit('friendGetRequestsReceived');
+            this.Socket.on('friendGetRequestsReceived', (data) => {
+                if (data) {
+                    resolve(data);
+                }
+                else {
+                    reject("Invalid token");
+                }
+            });
+        });
+    }
 }
 exports.Friend = Friend;
