@@ -28,4 +28,17 @@ export class Friend {
                 });
             });
         }
+
+        public get received(): Promise<object> {
+            return new Promise((resolve, reject) => {
+                this.Socket.emit('friendGetRequestsReceived');
+                this.Socket.on('friendGetRequestsReceived', (data: object) => {
+                    if (data) {
+                        resolve(data);
+                    } else {
+                        reject("Invalid token");
+                    }
+                });
+            });
+        }
 }
