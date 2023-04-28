@@ -8,11 +8,15 @@ export class Channel {
         this.Socket = Socket;
     }
 
-    public get channel():  Promise<object> {
+    public get get():  Promise<object> {
         return new Promise((resolve, reject) => {
-            this.Socket.emit('channelGet', (data: object) => {
-                if(!data) reject('No data received');
-                resolve(data);
+            this.Socket.emit('channelsGet');
+            this.Socket.on('channelsGet', (data: object) => {
+                if (data) {
+                    resolve(data);
+                } else {
+                    reject("Invalid token");
+                }
             });
         });
     }

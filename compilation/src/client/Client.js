@@ -9,12 +9,13 @@ const socket_io_client_1 = require("socket.io-client");
 const messages_1 = require("./messages");
 const friends_1 = require("./friends");
 const user_1 = require("./user");
+const channel_1 = require("./channel");
 class Client extends events_1.default {
     Socket = (0, socket_io_client_1.io)(require('../../config.json').URI);
     message = new messages_1.Message(this.Socket);
     friend = new friends_1.Friend(this.Socket);
     user = new user_1.User(this.Socket);
-    channels = [];
+    channels = new channel_1.Channel(this.Socket);
     constructor() {
         super();
         this.Socket.on('connect', () => {
