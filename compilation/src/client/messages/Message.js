@@ -17,7 +17,7 @@ class Message {
                     resolve(data);
                 }
                 else {
-                    reject("Message not found");
+                    reject("Channel not found");
                 }
             });
         });
