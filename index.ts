@@ -3,6 +3,10 @@ export const Revochat = {
     Client: Client
 }
 
+
+// EXEMPLE OF USAGE
+
+
 const client = new Revochat.Client({
     url: "ws://localhost:5000",
     token: "token",
