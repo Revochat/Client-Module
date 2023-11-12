@@ -10,13 +10,10 @@ export class Connect {
         this.options = options;
     }
 
-    login(url: string, token: string): Promise<void> {
+    public login(token: string): Promise<void> {
         return new Promise((resolve, reject) => {
-            this.socket = io(url);
             this.socket.on("connect", () => {
-                this.socket.emit("conn",JSON.stringify({
-                    token: token
-                }));
+                this.socket.emit("conn", token);
                 this.socket.once('conn', (data) => {
                     if(this.options.debug) console.log("[DEBUG] CONNECTED: " + data);
                     if(data.error) return reject(data.error);

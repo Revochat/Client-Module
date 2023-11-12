@@ -1,17 +1,16 @@
 import { Socket } from "socket.io-client";
+import { EventList } from "./EventList";
 
 export class On {
-    static addListener(socket: Socket, event: string, fn: (...args: any[]) => void) {
+    static addListener(event: string, data: any)  {
+        let eventData;
+
         switch(event) {
-            case 'message':
-                socket.on(event, (data) => {
-                    fn(JSON.parse(data));
-                });
+            case EventList.Message.Receive:
+                eventData = data
                 break;
             default:
-                socket.on(event, (data) => {
-                    fn(JSON.parse(data));
-                });
+                eventData = data;
                 break;
         }
     }

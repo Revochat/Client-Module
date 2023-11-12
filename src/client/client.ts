@@ -8,14 +8,13 @@ import { Emit } from "./utils/Emit";
 export declare namespace Client {
     interface ClientOptions {
         url: string;
-        token: string;
         debug?: boolean;
     }
 
     interface Client {
         send: Send;
-        login: Connect;
         on(event: string, fn: (data: Message.Response) => void): void;
+        emit(event: string, data: any): void;
     }
 }
 
@@ -24,20 +23,37 @@ export class Client implements Client.Client {
     private options: Client.ClientOptions;
     private socket: Socket;
     public send: Send;
-    public login: Connect;
+    private connect: Connect;
 
     constructor(options: Client.ClientOptions) {
         this.options = options;
         this.socket = io(options.url);
         this.send = new Send(this.socket);
-        this.login = new Connect(this.socket, this.options);
+        this.connect = new Connect(this.socket, this.options)
     }
 
-    on(event: string, fn: (data: Message.Response) => void) {
-        On.addListener(this.socket, event, fn);
+    on(event: string, fn: (data: any) => void) {
+        this.socket.on(event, (data) => {
+            if(this.options.debug) console.log("[DEBUG] EVENT: " + event + " DATA: " + data);
+            On.addListener(event, data);
+            fn(data);
+        })
+    }
+
+    onAny(fn: (event: string, data: any) => void) {
+        this.socket.onAny((event, data) => {
+            if(this.options.debug) console.log("[DEBUG] EVENT: " + event + " DATA: " + data);
+            On.addListener(event, data);
+            fn(event, data);
+        })
     }
     
-    emit(event: string, data: any) {
-        Emit.emit(this.socket, event, data);
+    emit(event: string, data?: any) {
+        this.socket.emit(event, data);
+        if(this.options.debug) console.log("[DEBUG] EMIT: " + event + " DATA: " + data);
+    }
+    
+    login(token: string): Promise<void> {
+        return this.connect.login(token);
     }
 }

@@ -1,5 +1,5 @@
-import { Event } from "./Event";
-import { Sender } from "./Sender";
+import { MessageEvent } from "./Event";
+import { MessageSender} from "./Sender";
 
 export namespace Message {
     export interface Request {
@@ -27,5 +27,7 @@ export namespace Message {
         error: string;
     }
 
-    export { Event, Sender };
+    // export Sender and Event
+    export const Sender = MessageSender;
+    export const Event = MessageEvent;
 }

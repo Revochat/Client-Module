@@ -16,6 +16,7 @@ export namespace EventList {
         Delete = "user.delete",
         Error = "user.error",
         Get = "user.get",
+        Connect = "user.connect",
     }
 
     export enum Server {

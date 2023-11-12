@@ -9,18 +9,13 @@ export const Revochat = {
 
 const client = new Revochat.Client({
     url: "ws://localhost:5000",
-    token: "token",
     debug: true,
 })
 
-client.on("message", (data) => {
-    console.log(data);
-});
+client.login("AA8626981F135A068E14779DB8F78DA81699436137576")
 
-client.on("connect", () => {
-    console.log("Connected!");
+client.on("user.connect", (data) => {
+    if(data.error) return console.log(data.error)
+    console.log("Connected as " + data.username +  " (" + data.user_id + ")")
 })
 
-client.on("message", (data) => {
-    console.log(data);
-})
