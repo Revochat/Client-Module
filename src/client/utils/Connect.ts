@@ -1,5 +1,6 @@
 import { Socket, io } from "socket.io-client";
 import { Client } from "../client";
+import { EventList } from "./EventList";
 
 export class Connect {
     private socket: Socket;
@@ -23,7 +24,9 @@ export class Connect {
 
             this.socket.once("disconnect", () => {
                 if(this.options.debug) console.log("[DEBUG] DISCONNECT")
-                reject('disconnect');
+                this.socket.removeAllListeners();
+                this.socket.disconnect();
+                reject(EventList.Error.Socket.Disconnected);
             });
 
             this.socket.once("error", (error) => {
@@ -33,7 +36,7 @@ export class Connect {
 
             setTimeout(() => {
                 if(this.socket.connected) return;
-                reject('timeout');
+                reject(EventList.Error.Socket.NoConnection);
             }, 5000);
         });
     }

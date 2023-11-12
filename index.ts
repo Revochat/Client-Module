@@ -14,8 +14,15 @@ const client = new Revochat.Client({
 
 client.login("AA8626981F135A068E14779DB8F78DA81699436137576")
 
-client.on("user.connect", (data) => {
-    if(data.error) return console.log(data.error)
-    console.log("Connected as " + data.username +  " (" + data.user_id + ")")
+client.on("user.connect", (user) => {
+    if(user.error) return console.log(user.error)
+    console.log(user)
+    console.log("Connected as " + user.username +  " (" + user.user_id + ")")  
+    console.log("You have " + user.friends.length + " friends")
+})
+
+client.on("message.receive", (message) => {
+    if(message.error) return console.log(message.error)
+    console.log(message)
 })
 
