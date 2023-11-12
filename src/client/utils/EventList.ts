@@ -1,8 +1,6 @@
 export namespace EventList {
-    export enum Message {
-        Send = "message.send",
-        Receive = "message.receive",
-        Error = "message.error",
+    export namespace Send {
+        
     }
 
     export enum Channel {
