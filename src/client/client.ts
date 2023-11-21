@@ -4,6 +4,7 @@ import { Send } from "./utils/Send";
 import { Connect } from "./utils/Connect";
 import { On } from "./utils/On";
 import { Emit } from "./utils/Emit";
+import { User } from "./utils/User";
 
 export declare namespace Client {
     interface ClientOptions {
@@ -24,12 +25,14 @@ export class Client implements Client.Client {
     private socket: Socket;
     public send: Send;
     private connect: Connect;
+    public user: User;
 
     constructor(options: Client.ClientOptions) {
         this.options = options;
         this.socket = io(options.url);
         this.send = new Send(this.socket);
         this.connect = new Connect(this.socket, this.options)
+        this.user = new User(this.socket, this.options);
     }
 
     on(event: string, fn: (data: any) => void) {
