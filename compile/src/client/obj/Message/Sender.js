@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Sender = void 0;
-class Sender {
+exports.MessageSender = void 0;
+class MessageSender {
     static message(socket, request) {
         return new Promise((resolve, reject) => {
             socket.send(JSON.stringify({
@@ -32,4 +32,4 @@ class Sender {
         });
     }
 }
-exports.Sender = Sender;
+exports.MessageSender = MessageSender;

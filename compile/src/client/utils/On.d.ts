@@ -1,5 +1,4 @@
-import { Socket } from "socket.io-client";
 export declare class On {
-    static addListener(socket: Socket, event: string, fn: (...args: any[]) => void): void;
+    static addListener(event: string, data: any): void;
 }
 //# sourceMappingURL=On.d.ts.map

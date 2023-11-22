@@ -1,4 +1,10 @@
+import { Socket } from "socket.io-client";
+import { Client } from "../client";
 export declare class User {
-    constructor();
+    private socket;
+    private options;
+    constructor(socket: Socket, options: Client.ClientOptions);
+    addFriend(user_id: string): Promise<void>;
+    removeFriend(user_id: string): Promise<void>;
 }
 //# sourceMappingURL=User.d.ts.map

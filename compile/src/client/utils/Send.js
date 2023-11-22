@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Send = void 0;
-const Message_1 = require("../obj/Message/Message");
+const Message_1 = require("../obj/Message/");
 class Send {
     constructor(socket) {
         this.socket = socket;

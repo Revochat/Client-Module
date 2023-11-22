@@ -1,6 +1,6 @@
 import { Socket } from "socket.io-client";
 import { Message } from "./Message";
-export declare class Event implements Message.Response {
+export declare class MessageEvent implements Message.Response {
     message_id: string;
     channel_id: string;
     message: string;

@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Event = void 0;
-class Event {
+exports.MessageEvent = void 0;
+class MessageEvent {
     constructor(message, socket) {
         this.message_id = message.message_id;
         this.channel_id = message.channel_id;
@@ -35,4 +35,4 @@ class Event {
         });
     }
 }
-exports.Event = Event;
+exports.MessageEvent = MessageEvent;

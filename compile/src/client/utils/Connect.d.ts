@@ -4,6 +4,6 @@ export declare class Connect {
     private socket;
     private options;
     constructor(socket: Socket, options: Client.ClientOptions);
-    login(url: string, token: string): Promise<void>;
+    login(token: string): Promise<void>;
 }
 //# sourceMappingURL=Connect.d.ts.map
