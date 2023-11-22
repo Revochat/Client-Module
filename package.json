@@ -3,5 +3,6 @@
     "socket.io-client": "^4.7.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
-  }
+  },
+  "version": "1.0.32"
 }
