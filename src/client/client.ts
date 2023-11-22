@@ -29,7 +29,7 @@ export class Client implements Client.Client {
 
     constructor(options: Client.ClientOptions) {
         this.options = options;
-        this.socket = io(options.url);
+        this.socket = io(options.url, { transports: ["websocket"] });
         this.send = new Send(this.socket);
         this.connect = new Connect(this.socket, this.options)
         this.user = new User(this.socket, this.options);

@@ -14,10 +14,10 @@ export declare namespace EventList {
         Error = "user.error",
         Get = "user.get",
         Connect = "user.connect",
-        AddFriend = "user.add.friend",
-        RemoveFriend = "user.remove.friend",
+        AddFriend = "user.friend.add",
+        RemoveFriend = "user.friend.add",
         Block = "user.block",
-        RemoveBlock = "user.remove.block"
+        RemoveBlock = "user.block.remove"
     }
     enum Server {
         Error = "server.error"

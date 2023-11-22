@@ -9,7 +9,7 @@ const User_1 = require("./utils/User");
 class Client {
     constructor(options) {
         this.options = options;
-        this.socket = (0, socket_io_client_1.io)(options.url);
+        this.socket = (0, socket_io_client_1.io)(options.url, { transports: ["websocket"] });
         this.send = new Send_1.Send(this.socket);
         this.connect = new Connect_1.Connect(this.socket, this.options);
         this.user = new User_1.User(this.socket, this.options);

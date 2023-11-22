@@ -21,10 +21,10 @@ var EventList;
         User["Error"] = "user.error";
         User["Get"] = "user.get";
         User["Connect"] = "user.connect";
-        User["AddFriend"] = "user.add.friend";
-        User["RemoveFriend"] = "user.remove.friend";
+        User["AddFriend"] = "user.friend.add";
+        User["RemoveFriend"] = "user.friend.add";
         User["Block"] = "user.block";
-        User["RemoveBlock"] = "user.remove.block";
+        User["RemoveBlock"] = "user.block.remove";
     })(User = EventList.User || (EventList.User = {}));
     let Server;
     (function (Server) {
