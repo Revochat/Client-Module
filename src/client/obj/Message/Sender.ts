@@ -19,7 +19,7 @@ export class MessageSender {
         });
     }
 
-    static Attachment(socket: Socket, request: Message.AttachmentRequest): Promise<Message.Response> {
+    static attachment(socket: Socket, request: Message.AttachmentRequest): Promise<Message.Response> {
         return new Promise((resolve, reject) => {
             socket.send(JSON.stringify({
                 channel_id: request.channel_id,

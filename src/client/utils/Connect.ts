@@ -14,8 +14,8 @@ export class Connect {
     public login(token: string): Promise<void> {
         return new Promise((resolve, reject) => {
             this.socket.on("connect", () => {
-                this.socket.emit("conn", token);
-                this.socket.once('conn', (data) => {
+                this.socket.emit(EventList.User.Connect, token);
+                this.socket.once(EventList.User.Connect, (data) => {
                     if(this.options.debug) console.log("[DEBUG] CONNECTED: " + data);
                     if(data.error) return reject(data.error);
                     resolve();

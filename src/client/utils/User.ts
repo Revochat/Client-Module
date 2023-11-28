@@ -1,6 +1,7 @@
 import { Socket, io } from "socket.io-client";
 import { Client } from "../client";
 import { EventList } from "./EventList";
+import { UserFriend } from "../obj/User/Friend";
 export class User {
     private socket: Socket;
     private options: Client.ClientOptions;
@@ -11,19 +12,7 @@ export class User {
     }
 
     public addFriend(data: object): Promise<void> {
-        return new Promise((resolve, reject) => {
-            this.socket.emit("user.friend.add", data);
-            this.socket.once('user.friend.add', (data) => {
-                if(this.options.debug) console.log("[DEBUG] USER ADD FRIEND: " + data);
-                if(data.error) return reject(data.error);
-                resolve();
-            });
-            
-            this.socket.once("error", (error) => {
-                if(this.options.debug) console.log("[DEBUG] ERROR: " + error)
-                reject(error);
-            });
-        });
+        return UserFriend.addFriend(this.socket, data, this.options.debug)
     }
 
     public removeFriend(user_id: string): Promise<void> {

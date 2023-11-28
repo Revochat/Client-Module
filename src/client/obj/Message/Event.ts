@@ -1,6 +1,6 @@
 import { Socket } from "socket.io-client";
 import { Message } from "./Message";
-
+import { EventList } from "../../utils/EventList";
 export class MessageEvent implements Message.Response {
     message_id: string;
     channel_id: string;
@@ -20,11 +20,11 @@ export class MessageEvent implements Message.Response {
 
     async delete(): Promise<void> {
         return new Promise((resolve, reject) => {
-            this.socket.emit('delete', JSON.stringify({
+            this.socket.emit(EventList.Message.Delete, JSON.stringify({
                 message_id: this.message_id
             }));
 
-            this.socket.once('delete', (data) => {
+            this.socket.once(EventList.Message.Delete, (data) => {
                 resolve();
             });
 
