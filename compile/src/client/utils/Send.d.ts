@@ -1,5 +1,5 @@
 import { Socket } from "socket.io-client";
-import { Message } from "../obj/Message/";
+import { Message } from "../obj/Message";
 export declare class Send {
     private socket;
     constructor(socket: Socket);

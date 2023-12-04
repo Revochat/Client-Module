@@ -1,10 +1,10 @@
-import { Message } from "./obj/Message/Message";
 import {io, Socket} from "socket.io-client";
-import { Send } from "./utils/Send";
+import { Message } from "./utils/Message";
 import { Connect } from "./utils/Connect";
 import { On } from "./utils/On";
 import { Emit } from "./utils/Emit";
 import { User } from "./utils/User";
+import { Channel } from "./utils/Channel";
 
 export declare namespace Client {
     interface ClientOptions {
@@ -13,8 +13,8 @@ export declare namespace Client {
     }
 
     interface Client {
-        send: Send;
-        on(event: string, fn: (data: Message.Response) => void): void;
+        message: Message;
+        on(event: string, fn: (data: any) => void): void;
         emit(event: string, data: any): void;
     }
 }
@@ -23,16 +23,18 @@ export declare namespace Client {
 export class Client implements Client.Client {
     private options: Client.ClientOptions;
     private socket: Socket;
-    public send: Send;
+    public message: Message;
     private connect: Connect;
     public user: User;
+    public channel: Channel;
 
     constructor(options: Client.ClientOptions) {
         this.options = options;
         this.socket = io(options.url, { transports: ["websocket"] });
-        this.send = new Send(this.socket);
+        this.message = new Message(this.socket, this.options);
         this.connect = new Connect(this.socket, this.options)
         this.user = new User(this.socket, this.options);
+        this.channel = new Channel(this.socket, this.options);
     }
 
     on(event: string, fn: (data: any) => void) {

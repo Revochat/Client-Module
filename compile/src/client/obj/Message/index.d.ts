@@ -1,2 +1,2 @@
-export * from "./Message";
+export * from "./MessageObject";
 //# sourceMappingURL=index.d.ts.map

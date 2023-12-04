@@ -6,9 +6,9 @@ export class On {
         let eventData;
 
         switch(event) {
-            case EventList.Message.Receive:
-                eventData = data
-                break;
+            // case EventList.Message.Receive:
+            //     eventData = data
+            //     break;
             default:
                 eventData = data;
                 break;

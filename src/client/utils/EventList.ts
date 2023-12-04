@@ -8,8 +8,12 @@ export namespace EventList {
 
     export enum Channel {
         Create = "channel.create",
+        Receive = "channel.receive",
         Delete = "channel.delete",
         Error = "channel.error",
+        Get = "channel.get",
+        Listen = "channel.listen",
+        Join = "channel.join",
     }
 
     export enum User {

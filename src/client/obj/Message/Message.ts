@@ -1,33 +1,20 @@
-import { MessageEvent } from "./Event";
-import { MessageSender} from "./Sender";
+import { Socket } from "socket.io-client";
+import { EventList } from "../../utils/EventList";
 
-export namespace Message {
-    export interface Request {
-        type: string | "message";
-        channel_id: string;
-        message: string;
+export class MessageObject {
+    static send(socket: Socket, data: object, debug: boolean = false): Promise<void> {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList.Message.Send, data);
+            socket.once(EventList.Message.Send, (data) => {
+                if(debug) console.log("[DEBUG] MESSAGE SEND: " + data);
+                if(data.error) return reject(data.error);
+                resolve();
+            });
+            
+            socket.once("error", (error) => {
+                if(debug) console.log("[DEBUG] ERROR: " + error)
+                reject(error);
+            });
+        });
     }
-
-    export interface Response {
-        message_id: string;
-        channel_id: string;
-        message: string;
-        user_id: string;
-        created_at: string;
-    }
-
-    export interface AttachmentRequest {
-        type: string | "attachment";
-        channel_id: string;
-        message: string;
-        attachment: string;
-    }
-
-    export interface ResponseError {
-        error: string;
-    }
-
-    // export Sender and Event
-    export const Sender = MessageSender;
-    export const Event = MessageEvent;
 }

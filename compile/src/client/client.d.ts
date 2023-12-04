@@ -1,5 +1,5 @@
-import { Message } from "./obj/Message/Message";
-import { Send } from "./utils/Send";
+import { Message } from "./obj/Message/MessageObject";
+import { Send } from "./utils/Message";
 import { User } from "./utils/User";
 export declare namespace Client {
     interface ClientOptions {
