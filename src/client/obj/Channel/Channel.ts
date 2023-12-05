@@ -18,6 +18,22 @@ export class ChannelObject {
         });
     }
 
+    static join(socket: Socket, data: object, debug: boolean = false): Promise<void> { // Join a channel
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList.Channel.Join, data);
+            socket.once(EventList.Channel.Join, (data) => {
+                if(debug) console.log("[DEBUG] CHANNEL JOIN: " + data);
+                if(data.error) return reject(data.error);
+                resolve();
+            });
+            
+            socket.once("error", (error) => {
+                if(debug) console.log("[DEBUG] ERROR: " + error)
+                reject(error);
+            });
+        });
+    }
+
     static getChannel(socket: Socket, debug: boolean = false): Promise<void> { // Get last x messages of a channel
         return new Promise((resolve, reject) => {
             socket.emit(EventList.Channel.Get);
@@ -33,20 +49,4 @@ export class ChannelObject {
             });
         });
     }
-
-    // static listen(socket: Socket, channel: string, debug: boolean = false): Promise<void> { // listen to incoming messages of a channel
-    //     return new Promise((resolve, reject) => {
-    //         socket.emit(EventList.Channel.Listen, channel); 
-    //         socket.once(EventList.Channel.Listen, (data) => {
-    //             if(debug) console.log("[DEBUG] CHANNEL LISTEN: " + data);
-    //             if(data.error) return reject(data.error);
-    //             resolve();
-    //         });
-            
-    //         socket.once("error", (error) => {
-    //             if(debug) console.log("[DEBUG] ERROR: " + error)
-    //             reject(error);
-    //         });
-    //     });
-    // }
 }

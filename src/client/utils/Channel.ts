@@ -13,6 +13,7 @@ export class Channel {
         return ChannelObject.create(this.socket, data);
     }
 
-
-    
+    public join(data: object): Promise<void> {
+        return ChannelObject.join(this.socket, data);
+    }
 }
