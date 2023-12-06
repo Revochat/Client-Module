@@ -15,7 +15,7 @@ try {
         console.log("Connected as " + user.username +  " (" + user.user_id + ")")  
         console.log("You have " + user.friends.length + " friends")
 
-        client.channel.get({ channel_id: "", limit: 50 }).catch((error) => {
+        client.channel.get({ channel_id: "DM_lux_thomas", limit: 50 }).catch((error) => {
             console.log(error)
         })
     })

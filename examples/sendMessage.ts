@@ -16,7 +16,7 @@ try {
         console.log("You have " + user.friends.length + " friends")
 
         console.log("Sending message...")
-        client.message.send({channel_id: "1701812068752", message: "Hello!"})
+        client.message.send({channel_id: "DM_lux_thomas", message: "hitler"})
     })
 
     client.on("message.send", (message) => {
