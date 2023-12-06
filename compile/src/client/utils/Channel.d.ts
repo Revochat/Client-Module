@@ -1,9 +1,9 @@
 import { Socket } from "socket.io-client";
 import { Client } from "../client";
-export declare class User {
+export declare class Channel {
     private socket;
-    private options;
     constructor(socket: Socket, options: Client.ClientOptions);
-    addFriend(data: object): Promise<void>;
+    create(data: object): Promise<void>;
+    join(data: object): Promise<void>;
 }
-//# sourceMappingURL=User.d.ts.map
+//# sourceMappingURL=Channel.d.ts.map

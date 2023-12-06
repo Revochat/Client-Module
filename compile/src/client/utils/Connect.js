@@ -10,8 +10,8 @@ class Connect {
     login(token) {
         return new Promise((resolve, reject) => {
             this.socket.on("connect", () => {
-                this.socket.emit("conn", token);
-                this.socket.once('conn', (data) => {
+                this.socket.emit(EventList_1.EventList.User.Connect, token);
+                this.socket.once(EventList_1.EventList.User.Connect, (data) => {
                     if (this.options.debug)
                         console.log("[DEBUG] CONNECTED: " + data);
                     if (data.error)

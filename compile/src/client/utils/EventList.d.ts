@@ -1,19 +1,24 @@
 export declare namespace EventList {
     enum Message {
         Send = "message.send",
-        Receive = "message.receive"
+        Receive = "message.receive",
+        Delete = "message.delete"
     }
     enum Channel {
         Create = "channel.create",
+        Receive = "channel.receive",
         Delete = "channel.delete",
-        Error = "channel.error"
+        Error = "channel.error",
+        Get = "channel.get",
+        Listen = "channel.listen",
+        Join = "channel.join"
     }
     enum User {
         Create = "user.create",
         Delete = "user.delete",
         Error = "user.error",
         Get = "user.get",
-        Connect = "user.connect",
+        Connect = "conn",
         AddFriend = "user.friend.add",
         RemoveFriend = "user.friend.add",
         Block = "user.block",

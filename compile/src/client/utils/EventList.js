@@ -7,12 +7,17 @@ var EventList;
     (function (Message) {
         Message["Send"] = "message.send";
         Message["Receive"] = "message.receive";
+        Message["Delete"] = "message.delete";
     })(Message = EventList.Message || (EventList.Message = {}));
     let Channel;
     (function (Channel) {
         Channel["Create"] = "channel.create";
+        Channel["Receive"] = "channel.receive";
         Channel["Delete"] = "channel.delete";
         Channel["Error"] = "channel.error";
+        Channel["Get"] = "channel.get";
+        Channel["Listen"] = "channel.listen";
+        Channel["Join"] = "channel.join";
     })(Channel = EventList.Channel || (EventList.Channel = {}));
     let User;
     (function (User) {
@@ -20,7 +25,7 @@ var EventList;
         User["Delete"] = "user.delete";
         User["Error"] = "user.error";
         User["Get"] = "user.get";
-        User["Connect"] = "user.connect";
+        User["Connect"] = "conn";
         User["AddFriend"] = "user.friend.add";
         User["RemoveFriend"] = "user.friend.add";
         User["Block"] = "user.block";

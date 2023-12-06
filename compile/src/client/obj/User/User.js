@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MessageObject = void 0;
+exports.UserObject = void 0;
 const EventList_1 = require("../../utils/EventList");
-class MessageObject {
-    static send(socket, data, debug = false) {
+class UserObject {
+    static addFriend(socket, data, debug = false) {
         return new Promise((resolve, reject) => {
-            socket.emit(EventList_1.EventList.Message.Send, data);
-            socket.once(EventList_1.EventList.Message.Send, (data) => {
+            socket.emit(EventList_1.EventList.User.AddFriend, data);
+            socket.once(EventList_1.EventList.User.AddFriend, (data) => {
                 if (debug)
-                    console.log("[DEBUG] MESSAGE SEND: " + data);
+                    console.log("[DEBUG] USER ADD FRIEND: " + data);
                 if (data.error)
                     return reject(data.error);
                 resolve();
@@ -21,4 +21,4 @@ class MessageObject {
         });
     }
 }
-exports.MessageObject = MessageObject;
+exports.UserObject = UserObject;

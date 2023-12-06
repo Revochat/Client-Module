@@ -1,23 +1,24 @@
-import { Message } from "./obj/Message/MessageObject";
-import { Send } from "./utils/Message";
+import { Message } from "./utils/Message";
 import { User } from "./utils/User";
+import { Channel } from "./utils/Channel";
 export declare namespace Client {
     interface ClientOptions {
         url: string;
         debug?: boolean;
     }
     interface Client {
-        send: Send;
-        on(event: string, fn: (data: Message.Response) => void): void;
+        message: Message;
+        on(event: string, fn: (data: any) => void): void;
         emit(event: string, data: any): void;
     }
 }
 export declare class Client implements Client.Client {
     private options;
     private socket;
-    send: Send;
+    message: Message;
     private connect;
     user: User;
+    channel: Channel;
     constructor(options: Client.ClientOptions);
     on(event: string, fn: (data: any) => void): void;
     onAny(fn: (event: string, data: any) => void): void;

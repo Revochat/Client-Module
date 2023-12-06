@@ -2,17 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Client = void 0;
 const socket_io_client_1 = require("socket.io-client");
-const Send_1 = require("./utils/Send");
+const Message_1 = require("./utils/Message");
 const Connect_1 = require("./utils/Connect");
 const On_1 = require("./utils/On");
 const User_1 = require("./utils/User");
+const Channel_1 = require("./utils/Channel");
 class Client {
     constructor(options) {
         this.options = options;
         this.socket = (0, socket_io_client_1.io)(options.url, { transports: ["websocket"] });
-        this.send = new Send_1.Send(this.socket);
+        this.message = new Message_1.Message(this.socket, this.options);
         this.connect = new Connect_1.Connect(this.socket, this.options);
         this.user = new User_1.User(this.socket, this.options);
+        this.channel = new Channel_1.Channel(this.socket, this.options);
     }
     on(event, fn) {
         this.socket.on(event, (data) => {
