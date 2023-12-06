@@ -34,13 +34,13 @@ export class ChannelObject {
         });
     }
 
-    static getChannel(socket: Socket, debug: boolean = false): Promise<void> { // Get last x messages of a channel
+    static get(socket: Socket, data: object, debug: boolean = false): Promise<void> { // Get last x messages of a channel
         return new Promise((resolve, reject) => {
-            socket.emit(EventList.Channel.Get);
+            socket.emit(EventList.Channel.Get, data);
             socket.once(EventList.Channel.Get, (data) => {
-                if(debug) console.log("[DEBUG] CHANNEL GETCHANNEL: " + data);
+                if(debug) console.log("[DEBUG] CHANNEL GET: " + data);
                 if(data.error) return reject(data.error);
-                resolve();
+                resolve(data.messages);
             });
             
             socket.once("error", (error) => {

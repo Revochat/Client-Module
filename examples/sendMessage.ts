@@ -19,9 +19,9 @@ try {
         client.message.send({channel_id: "1701812068752", message: "Hello!"})
     })
 
-    client.on("message.send", (user) => {
-        if(user.error) return console.log(user.error)
-        console.log(user)
+    client.on("message.send", (message) => {
+        if(message.error) return console.log(message.error)
+        console.log(message)
     })
     
 } catch (error) {

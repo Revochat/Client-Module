@@ -15,13 +15,9 @@ try {
         console.log("Connected as " + user.username +  " (" + user.user_id + ")")  
         console.log("You have " + user.friends.length + " friends")
 
-        console.log("Sending message...")
-        // client.message.send({channel_id: "1701812068752", message: "Hello!"})
-    })
-
-    client.on("message.send", (user) => {
-        if(user.error) return console.log(user.error)
-        console.log(user)
+        client.channel.get({ channel_id: "", limit: 50 }).catch((error) => {
+            console.log(error)
+        })
     })
     
 } catch (error) {

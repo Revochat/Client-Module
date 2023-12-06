@@ -16,4 +16,8 @@ export class Channel {
     public join(data: object): Promise<void> {
         return ChannelObject.join(this.socket, data);
     }
+
+    public get(data: object): Promise<void> {
+        return ChannelObject.get(this.socket, data);
+    }
 }
