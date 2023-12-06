@@ -14,16 +14,6 @@ try {
         console.log(user)
         console.log("Connected as " + user.username +  " (" + user.user_id + ")")  
         console.log("You have " + user.friends.length + " friends")
-    
-        console.log("Adding friend...")
-        client.user.addFriend({friend_id: "lux"})
-    })
-
-    // client.on ou .then
-
-    client.on("user.friend.add", (user) => {
-        if(user.error) return console.log(user.error)
-        console.log(user)
     })
     
 } catch (error) {
