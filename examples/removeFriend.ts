@@ -13,16 +13,16 @@ try {
         console.log("Connected as " + user.username + " (" + user.user_id + ")")
         console.log("You have " + user.friends.length + " friends")
 
-        const friendIdToRemove = "friend_user_id"; // ID de l'ami à supprimer
+        const friendIdToRemove = "thomas"; // ID de l'ami à supprimer
         try {
             client.emit("remove.friend", { friend_id: friendIdToRemove });
-            console.log("Requested to remove friend with ID:", friendIdToRemove);
+            console.log("try to remove friend with ID:", friendIdToRemove);
         } catch (error) {
             console.error("Error sending remove.friend event:", error);
         }
     })
 
-    client.on("user.friend.remove", (result) => {
+    client.on("remove.friend", (result) => {
         if (result.error) return console.error("Error:", result.error);
         console.log("Friend removed:", result);
     })
