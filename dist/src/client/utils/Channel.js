@@ -12,5 +12,8 @@ class Channel {
     join(data) {
         return Channel_1.ChannelObject.join(this.socket, data);
     }
+    get(data) {
+        return Channel_1.ChannelObject.get(this.socket, data);
+    }
 }
 exports.Channel = Channel;

@@ -37,15 +37,15 @@ class ChannelObject {
             });
         });
     }
-    static getChannel(socket, debug = false) {
+    static get(socket, data, debug = false) {
         return new Promise((resolve, reject) => {
-            socket.emit(EventList_1.EventList.Channel.Get);
+            socket.emit(EventList_1.EventList.Channel.Get, data);
             socket.once(EventList_1.EventList.Channel.Get, (data) => {
                 if (debug)
-                    console.log("[DEBUG] CHANNEL GETCHANNEL: " + data);
+                    console.log("[DEBUG] CHANNEL GET: " + data);
                 if (data.error)
                     return reject(data.error);
-                resolve();
+                resolve(data.messages);
             });
             socket.once("error", (error) => {
                 if (debug)

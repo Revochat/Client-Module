@@ -5,5 +5,6 @@ export declare class Channel {
     constructor(socket: Socket, options: Client.ClientOptions);
     create(data: object): Promise<void>;
     join(data: object): Promise<void>;
+    get(data: object): Promise<void>;
 }
 //# sourceMappingURL=Channel.d.ts.map

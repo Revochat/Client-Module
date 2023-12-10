@@ -5,6 +5,7 @@ import { On } from "./utils/On";
 import { Emit } from "./utils/Emit";
 import { User } from "./utils/User";
 import { Channel } from "./utils/Channel";
+import { Server } from "./utils/Server";
 
 export declare namespace Client {
     interface ClientOptions {
@@ -27,6 +28,7 @@ export class Client implements Client.Client {
     private connect: Connect;
     public user: User;
     public channel: Channel;
+    public server: Server;
 
     constructor(options: Client.ClientOptions) {
         this.options = options;
@@ -35,6 +37,7 @@ export class Client implements Client.Client {
         this.connect = new Connect(this.socket, this.options)
         this.user = new User(this.socket, this.options);
         this.channel = new Channel(this.socket, this.options);
+        this.server = new Server(this.socket, this.options);
     }
 
     on(event: string, fn: (data: any) => void) {

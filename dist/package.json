@@ -4,6 +4,6 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
-  "version": "1.0.37",
+  "version": "1.0.38",
   "name": "@revochat/revochat-client"
 }
