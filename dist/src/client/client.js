@@ -7,6 +7,7 @@ const Connect_1 = require("./utils/Connect");
 const On_1 = require("./utils/On");
 const User_1 = require("./utils/User");
 const Channel_1 = require("./utils/Channel");
+const Server_1 = require("./utils/Server");
 class Client {
     constructor(options) {
         this.options = options;
@@ -15,6 +16,7 @@ class Client {
         this.connect = new Connect_1.Connect(this.socket, this.options);
         this.user = new User_1.User(this.socket, this.options);
         this.channel = new Channel_1.Channel(this.socket, this.options);
+        this.server = new Server_1.Server(this.socket, this.options);
     }
     on(event, fn) {
         this.socket.on(event, (data) => {

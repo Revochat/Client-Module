@@ -6,7 +6,6 @@ var EventList;
     let Message;
     (function (Message) {
         Message["Send"] = "message.send";
-        Message["Receive"] = "message.receive";
         Message["Delete"] = "message.delete";
     })(Message = EventList.Message || (EventList.Message = {}));
     let Channel;
@@ -25,30 +24,15 @@ var EventList;
         User["Delete"] = "user.delete";
         User["Error"] = "user.error";
         User["Get"] = "user.get";
-        User["Connect"] = "conn";
+        User["Connect"] = "user.connect";
         User["AddFriend"] = "user.friend.add";
         User["RemoveFriend"] = "user.friend.add";
-        User["Block"] = "user.block";
-        User["RemoveBlock"] = "user.block.remove";
     })(User = EventList.User || (EventList.User = {}));
     let Server;
     (function (Server) {
         Server["Error"] = "server.error";
+        Server["Create"] = "server.create";
     })(Server = EventList.Server || (EventList.Server = {}));
-    let Delete;
-    (function (Delete) {
-        Delete["Message"] = "delete.message";
-        Delete["Channel"] = "delete.channel";
-    })(Delete = EventList.Delete || (EventList.Delete = {}));
-    let Update;
-    (function (Update) {
-        Update["Message"] = "update.message";
-        Update["Channel"] = "update.channel";
-    })(Update = EventList.Update || (EventList.Update = {}));
-    let Join;
-    (function (Join) {
-        Join["Channel"] = "join.channel";
-    })(Join = EventList.Join || (EventList.Join = {}));
     let Error;
     (function (Error) {
         let Message;

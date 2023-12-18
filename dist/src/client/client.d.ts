@@ -1,6 +1,7 @@
 import { Message } from "./utils/Message";
 import { User } from "./utils/User";
 import { Channel } from "./utils/Channel";
+import { Server } from "./utils/Server";
 export declare namespace Client {
     interface ClientOptions {
         url: string;
@@ -19,6 +20,7 @@ export declare class Client implements Client.Client {
     private connect;
     user: User;
     channel: Channel;
+    server: Server;
     constructor(options: Client.ClientOptions);
     on(event: string, fn: (data: any) => void): void;
     onAny(fn: (event: string, data: any) => void): void;
