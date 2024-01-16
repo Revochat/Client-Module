@@ -20,8 +20,9 @@ export class Message {
 
     public async sendFile(serverUrl: string, token: string, channelId: string, formData: FormData): Promise<string | null> {
         try {
-            return MessageObject.sendFile(serverUrl, token, channelId, formData);
-        } catch (e) {
+            const link = await MessageObject.sendFile(serverUrl, token, channelId, formData);
+            return link;
+        } catch {
             return null;
         }
     }
