@@ -2,7 +2,8 @@ export namespace EventList {
     
     export enum Message {
         Send = "message.send",
-        Delete = "message.delete"
+        Delete = "message.delete",
+        SendFile = "message.sendFile",
     }
 
     export enum Channel {

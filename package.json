@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "axios": "^1.6.5",
     "dotenv": "^16.3.1",
+    "form-data": "^4.0.0",
     "socket.io-client": "^4.7.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
