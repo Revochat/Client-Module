@@ -6,8 +6,7 @@ const client = new Revochat.Client({
 })
 
 try {
-    // client.login("F10E0584D4955A93AB36C0B5C5B363021702227938667") // lux
-    client.login("F10E0584D4955A93AB36C0B5C5B363021702227938667")
+    client.login("F10E0584D4955A93AB36C0B5C5B363021702227938668")
     
     client.on("user.connect", (user) => {
         if(user.error) return console.log(user.error)
@@ -16,7 +15,7 @@ try {
         console.log("You have " + user.friends.length + " friends")
     
         console.log("Adding friend...")
-        client.user.addFriend({friend_id: "lux"}).catch((error) => {
+        client.user.addFriend({username: "lux"}).catch((error) => {
             console.log(error)
         })
     })

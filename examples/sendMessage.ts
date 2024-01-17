@@ -19,7 +19,7 @@ try {
         // client.message.send({channel_id: "1702227919397", message: "test"})
 
         setInterval(() => {
-            client.message.send({channel_id: "1702227919397", message: "test"})
+            client.message.send({channel_id: "1703087621729", message: "test"})
         }, 5000)
     })
 
