@@ -7,7 +7,7 @@ const client = new Revochat.Client({
 
 try {
     // client.login("AA8626981F135A068E14779DB8F78DA81699436137576") // lux
-    client.login("E90E83039D0F59F39BDBC46EF47573541703084270492") // thomas
+    client.login("FAF395DFF11C5457B3768E195E18794E1705500854372") // thomas
 
     client.on("user.connect", (user) => {
         if(user.error) return console.log(user.error)

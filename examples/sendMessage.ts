@@ -6,7 +6,7 @@ const client = new Revochat.Client({
 })
 
 try {
-    client.login("F10E0584D4955A93AB36C0B5C5B363021702227938667") // lux
+    client.login("FAF395DFF11C5457B3768E195E18794E1705500854372") // lux
     // client.login("E2A834F0272A5667A3DC1B702E14301F1699433661592") // thomas
 
     client.on("user.connect", (user) => {
@@ -19,7 +19,7 @@ try {
         // client.message.send({channel_id: "1702227919397", message: "test"})
 
         setInterval(() => {
-            client.message.send({channel_id: "1703087621729", message: "test"})
+            client.message.send({channel_id: "65a7ec1b44471bc0b07e80d9", message: "test"})
         }, 5000)
     })
 
