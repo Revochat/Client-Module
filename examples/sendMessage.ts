@@ -19,7 +19,7 @@ try {
         // client.message.send({channel_id: "1702227919397", message: "test"})
 
         setInterval(() => {
-            client.message.send({channel_id: "65a7ec1b44471bc0b07e80d9", message: "test"})
+            client.message.send({channel_id: "65a7f3bae270ef8e5656dc6b", message: "ilyes test delete"})
         }, 5000)
     })
 
