@@ -4,14 +4,17 @@ import dotenv from 'dotenv';
 
 dotenv.config();  // Load environment variables from .env file 
 
-const client = new Revochat.Client({
-    url: "ws://localhost:3001",
-    debug: true,
-})
-
 try {
     const USER1_TOKEN = process.env.USER1_TOKEN
     if(!USER1_TOKEN) throw new Error("USER1_TOKEN is not defined in .env file")
+
+    const URL = process.env.URL
+    if(!URL) throw new Error("URL is not defined in .env file")
+
+    const client = new Revochat.Client({
+        url: URL,
+        debug: true,
+    })
 
     client.login(USER1_TOKEN) // login with token
 

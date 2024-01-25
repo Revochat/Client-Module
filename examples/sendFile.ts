@@ -1,27 +1,27 @@
 import { Revochat } from "../index"
+import { EventList } from "../src/client/utils/EventList"
 import fs from "fs"
 import path from "path"
 import FormData from "form-data";
+import dotenv from 'dotenv';
 
-const client = new Revochat.Client({
-    url: "ws://localhost:3001",
-    debug: true,
-})
-
-
-function prepareFormData(filePath: string): FormData {
-    const formData = new FormData();
-    const fileStream = fs.createReadStream(filePath);
-    
-    formData.append('file', fileStream, path.basename(filePath));
-
-    return formData;
-}
+dotenv.config();  // Load environment variables from .env file 
 
 try {
-    client.login("F10E0584D4955A93AB36C0B5C5B363021702227938667") // lux
+    const USER1_TOKEN = process.env.USER1_TOKEN
+    if(!USER1_TOKEN) throw new Error("USER1_TOKEN is not defined in .env file")
 
-    client.on("user.connect", async (user) => {
+    const URL = process.env.URL
+    if(!URL) throw new Error("URL is not defined in .env file")
+
+    const client = new Revochat.Client({
+        url: URL,
+        debug: true,
+    })
+
+    client.login(USER1_TOKEN) // login with token
+
+    client.on(EventList.User.Connect, async (user) => {
         if (user.error) return console.log(user.error)
         console.log("Connected as " + user.username + " (" + user.user_id + ")")
         console.log("You have " + user.friends.length + " friends")

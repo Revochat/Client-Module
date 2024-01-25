@@ -16,8 +16,10 @@ export class Message {
         return MessageObject.send(this.socket, data);
     }
 
-    // static async sendFile(socket: Socket, serverUrl: string, token: string, channelId: string, formData: FormData, debug: boolean = false): Promise<void> {
-
+    public delete(data: object): Promise<void> {
+        return MessageObject.delete(this.socket, data);
+    }
+    
     public async sendFile(serverUrl: string, token: string, channelId: string, formData: FormData): Promise<string | null> {
         try {
             const link = await MessageObject.sendFile(serverUrl, token, channelId, formData);

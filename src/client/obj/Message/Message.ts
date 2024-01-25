@@ -19,6 +19,22 @@ export class MessageObject {
         });
     }
 
+    static delete(socket: Socket, data: object, debug: boolean = false): Promise<void> {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList.Message.Delete, data);
+            socket.once(EventList.Message.Delete, (data) => {
+                if(debug) console.log("[DEBUG] MESSAGE DELETE: " + data);
+                if(data.error) return reject(data.error);
+                resolve();
+            });
+            
+            socket.once("error", (error) => {
+                if(debug) console.log("[DEBUG] ERROR: " + error)
+                reject(error);
+            });
+        });
+    }
+
     static uploadFile(serverUrl: string, token: string, channelId: string, formData: FormData, debug: boolean = false): Promise<string> {
         return new Promise(async (resolve, reject) => {
             const url = `${serverUrl}/upload/${channelId}`;

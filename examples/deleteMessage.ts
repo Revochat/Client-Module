@@ -1,14 +1,24 @@
 import { Revochat } from "../index";
+import { EventList } from "../src/client/utils/EventList";
+import dotenv from 'dotenv';
 
-const client = new Revochat.Client({
-    url: "ws://localhost:3001",
-    debug: true,
-});
+dotenv.config();  // Load environment variables from .env file 
 
 try {
-    client.login("FAF395DFF11C5457B3768E195E18794E1705500854372"); // lux
+    const USER1_TOKEN = process.env.USER1_TOKEN
+    if(!USER1_TOKEN) throw new Error("USER1_TOKEN is not defined in .env file")
 
-    client.on("user.connect", (user) => {
+    const URL = process.env.URL
+    if(!URL) throw new Error("URL is not defined in .env file")
+
+    const client = new Revochat.Client({
+        url: URL,
+        debug: true,
+    })
+
+    client.login(USER1_TOKEN) // login with token
+
+    client.on(EventList.User.Connect, (user) => {
         if (user.error) return console.log(user.error);
         console.log("Connected as " + user.username + " (" + user.user_id + ")");
         console.log("You have " + user.friends.length + " friends");
