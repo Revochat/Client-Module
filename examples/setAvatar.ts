@@ -33,7 +33,7 @@ try {
 
         formData.append('file', fileStream, path.basename(filePath));
 
-        const link = await client.user.setAvatar("http://localhost:4000", "F10E0584D4955A93AB36C0B5C5B363021702227938667", "1702227951051", formData)
+        const link = await client.user.setAvatar("http://localhost:4000", USER1_TOKEN, "65a7e0c367c3fa98fedd37b6", formData)
         console.log(link)
     })
 

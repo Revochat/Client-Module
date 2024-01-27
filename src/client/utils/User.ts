@@ -21,6 +21,6 @@ export class User {
     }
 
     public setAvatar(serverUrl: string, token: string, userId: string, formData: FormData): Promise<string> {
-        return UserObject.setAvatar(this.socket,  serverUrl, token, userId, formData, this.options.debug)
+        return UserObject.setAvatar(serverUrl, token, userId, formData, this.options.debug)
     }
 }

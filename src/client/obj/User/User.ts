@@ -37,7 +37,7 @@ export class UserObject {
 
     static uploadFile(serverUrl: string, token: string, userId: string, formData: FormData, debug: boolean = false): Promise<string> {
         return new Promise(async (resolve, reject) => {
-            const url = `${serverUrl}/upload/${userId}`;
+            const url = `${serverUrl}/upload/avatar/${userId}`;
         
             try {
                 const response = await axios.post(url, formData, {
@@ -56,14 +56,11 @@ export class UserObject {
         });
     }
 
-    static setAvatar(socket: Socket, serverUrl: string, token: string, userId: string, formData: FormData, debug: boolean = false): Promise<string> {
+    static setAvatar(serverUrl: string, token: string, userId: string, formData: FormData, debug: boolean = false): Promise<string> {
         return new Promise(async (resolve, reject) => {
             try {
                 const uploadStatus = await this.uploadFile(serverUrl, token, userId, formData, debug);
                 if(!uploadStatus) return reject("Upload failed");
-
-                // set avatar in backend
-                socket.emit(EventList.User.SetAvatar, { userId, avatar: uploadStatus });
 
                 return resolve(uploadStatus);
             } catch (error) {

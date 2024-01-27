@@ -33,8 +33,7 @@ try {
 
         formData.append('file', fileStream, path.basename(filePath));
 
-        // client.message.sendFile(new File(["Hello, World!"], "hello.txt"), "5f9e9b7b9b9b9b9b9b9b9b9b", "AA8626981F135A068E14779DB8F78DA81699436137576")
-        const link = await client.message.sendFile("http://localhost:4000", "F10E0584D4955A93AB36C0B5C5B363021702227938667", "1702227951051", formData)
+        const link = await client.message.sendFile("http://localhost:4000", USER1_TOKEN, "65a7f3bae270ef8e5656dc6b", formData)
         console.log(link)
     })
 

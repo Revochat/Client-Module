@@ -37,7 +37,7 @@ export class MessageObject {
 
     static uploadFile(serverUrl: string, token: string, channelId: string, formData: FormData, debug: boolean = false): Promise<string> {
         return new Promise(async (resolve, reject) => {
-            const url = `${serverUrl}/upload/${channelId}`;
+            const url = `${serverUrl}/upload/channel/${channelId}`;
         
             try {
                 const response = await axios.post(url, formData, {
@@ -61,7 +61,7 @@ export class MessageObject {
             try {
                 const uploadStatus = await this.uploadFile(serverUrl, token, channelId, formData, debug);
                 if(!uploadStatus) return reject("Upload failed");
-
+                
                 return resolve(uploadStatus);
             } catch (error) {
                 if(debug) console.log("[DEBUG] ERROR: " + error)
