@@ -37,7 +37,7 @@ export class UserObject {
 
     static uploadFile(serverUrl: string, token: string, userId: string, formData: FormData, debug: boolean = false): Promise<string> {
         return new Promise(async (resolve, reject) => {
-            const url = `${serverUrl}/upload/avatar/${userId}`;
+            const url = `${serverUrl}/uploads/avatar/${userId}`;
         
             try {
                 const response = await axios.post(url, formData, {

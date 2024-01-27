@@ -37,7 +37,7 @@ export class MessageObject {
 
     static uploadFile(serverUrl: string, token: string, channelId: string, formData: FormData, debug: boolean = false): Promise<string> {
         return new Promise(async (resolve, reject) => {
-            const url = `${serverUrl}/upload/channel/${channelId}`;
+            const url = `${serverUrl}/uploads/channel/${channelId}`;
         
             try {
                 const response = await axios.post(url, formData, {
