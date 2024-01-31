@@ -8,5 +8,6 @@ export declare class User {
     addFriend(data: object): Promise<void>;
     removeFriend(data: object): Promise<void>;
     setAvatar(serverUrl: string, token: string, userId: string, formData: FormData): Promise<string>;
+    getFriends(): Promise<void>;
 }
 //# sourceMappingURL=User.d.ts.map

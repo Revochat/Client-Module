@@ -27,6 +27,7 @@ var EventList;
         User["Connect"] = "user.connect";
         User["AddFriend"] = "user.friend.add";
         User["RemoveFriend"] = "user.friend.remove";
+        User["GetFriends"] = "user.friends.get";
         User["SetAvatar"] = "user.avatar.set";
     })(User = EventList.User || (EventList.User = {}));
     let Server;

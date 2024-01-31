@@ -24,13 +24,13 @@ try {
         console.log("Connected as " + user.username +  " (" + user.user_id + ")")  
         console.log("You have " + user.friends.length + " friends")
 
-        client.user.getFriends().catch((error) => {
+        client.user.getFriendsReceived().catch((error) => {
             console.log(error)
         })
     })
 
-    client.on(EventList.User.GetFriends, (friends) => {
-        console.log("You have " + friends.length + " friends")
+    client.on(EventList.User.GetFriendsReceived, (friends) => {
+        console.log("You have friends")
         console.log(friends)
     })
 
