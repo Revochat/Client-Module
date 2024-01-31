@@ -10,5 +10,11 @@ class User {
     addFriend(data) {
         return User_1.UserObject.addFriend(this.socket, data, this.options.debug);
     }
+    removeFriend(data) {
+        return User_1.UserObject.removeFriend(this.socket, data, this.options.debug);
+    }
+    setAvatar(serverUrl, token, userId, formData) {
+        return User_1.UserObject.setAvatar(serverUrl, token, userId, formData, this.options.debug);
+    }
 }
 exports.User = User;

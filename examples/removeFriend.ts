@@ -25,7 +25,9 @@ try {
 
         const usernameToRemove = "thomas"; // ID de l'ami à supprimer
 
-        client.user.removeFriend({ username: usernameToRemove });
+        client.user.removeFriend({ username: usernameToRemove }).catch((error) => {
+            console.log(error, "Error ")
+        })
     })
 
     client.on(EventList.User.RemoveFriend, (result) => {

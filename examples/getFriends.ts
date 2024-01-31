@@ -24,13 +24,14 @@ try {
         console.log("Connected as " + user.username +  " (" + user.user_id + ")")  
         console.log("You have " + user.friends.length + " friends")
 
-        client.channel.get({ channel_id: "65ba13e48f24518c5b31fb3e", limit: 25 }).catch((error) => {
+        client.user.getFriends().catch((error) => {
             console.log(error)
         })
     })
 
-    client.on(EventList.Channel.Get, (message) => {
-        console.log(message)
+    client.on(EventList.User.GetFriends, (friends) => {
+        console.log("You have " + friends.length + " friends")
+        console.log(friends)
     })
 
     

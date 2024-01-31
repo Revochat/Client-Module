@@ -35,6 +35,22 @@ export class UserObject {
         });
     }
 
+    static getFriends(socket: Socket, debug: boolean = false): Promise<void> {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList.User.GetFriends);
+            socket.once(EventList.User.GetFriends, (data) => {
+                if(debug) console.log("[DEBUG] USER GET FRIENDS: " + data);
+                if(data.error) return reject(data.error);
+                resolve();
+            });
+            
+            socket.once("error", (error) => {
+                if(debug) console.log("[DEBUG] ERROR: " + error)
+                reject(error);
+            });
+        });
+    }
+
     static uploadFile(serverUrl: string, token: string, userId: string, formData: FormData, debug: boolean = false): Promise<string> {
         return new Promise(async (resolve, reject) => {
             const url = `${serverUrl}/uploads/avatar/${userId}`;
