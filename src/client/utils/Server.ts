@@ -12,4 +12,8 @@ export class Server {
     public create(data: object): Promise<void> {
         return ServerObject.create(this.socket, data);
     }
+
+    public delete(data: object): Promise<void> {
+        return ServerObject.delete(this.socket, data);
+    }
 }

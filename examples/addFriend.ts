@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 dotenv.config();  // Load environment variables from .env file 
 
 try {
-    const USER1_TOKEN = process.env.USER1_TOKEN
-    if(!USER1_TOKEN) throw new Error("USER1_TOKEN is not defined in .env file")
+    const USER2_TOKEN = process.env.USER2_TOKEN
+    if(!USER2_TOKEN) throw new Error("USER1_TOKEN is not defined in .env file")
 
     const URL = process.env.URL
     if(!URL) throw new Error("URL is not defined in .env file")
@@ -16,7 +16,7 @@ try {
         debug: true,
     })
 
-    client.login(USER1_TOKEN) // login with token
+    client.login(USER2_TOKEN) // login with token
     
     client.on(EventList.User.Connect, (user) => {
         if(user.error) return console.log(user.error)
@@ -25,7 +25,7 @@ try {
         console.log("You have " + user.friends.length + " friends")
     
         console.log("Adding friend...")
-        client.user.addFriend({username: "thomas"}).catch((error) => {
+        client.user.addFriend({username: "lux"}).catch((error) => {
             console.log(error)
         })
     })

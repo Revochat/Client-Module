@@ -24,5 +24,6 @@ export namespace EventList {
 
     export enum Server {
         Create = "server.create",
+        Delete = "server.delete",
     }
 }

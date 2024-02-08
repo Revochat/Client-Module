@@ -17,4 +17,20 @@ export class ServerObject {
             });
         });
     }
+
+    static delete(socket: Socket, data: object, debug: boolean = false): Promise<void> { // Delete a channel
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList.Server.Delete, data);
+            socket.once(EventList.Server.Delete, (data) => {
+                if(debug) console.log("[DEBUG] SERVER DELETE: " + data);
+                if(data.error) return reject(data.error);
+                resolve();
+            });
+            
+            socket.once("error", (error) => {
+                if(debug) console.log("[DEBUG] ERROR: " + error)
+                reject(error);
+            });
+        });
+    }
 }
