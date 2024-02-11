@@ -34,22 +34,6 @@ export class UserObject {
             });
         });
     }
-
-    static getFriendsReceived(socket: Socket, debug: boolean = false): Promise<void> {
-        return new Promise((resolve, reject) => {
-            socket.emit(EventList.User.GetFriendsReceived);
-            socket.once(EventList.User.GetFriendsReceived, (data) => {
-                if(debug) console.log("[DEBUG] USER GET FRIENDS RECEIVED: " + data);
-                if(data.error) return reject(data.error);
-                resolve();
-            });
-            
-            socket.once("error", (error) => {
-                if(debug) console.log("[DEBUG] ERROR: " + error)
-                reject(error);
-            });
-        });
-    }
     
     static uploadFile(serverUrl: string, token: string, userId: string, formData: FormData, debug: boolean = false): Promise<string> {
         return new Promise(async (resolve, reject) => {

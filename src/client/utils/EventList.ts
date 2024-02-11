@@ -17,7 +17,7 @@ export namespace EventList {
         Get = "user.get",
         Connect = "user.connect",
         AddFriend = "user.friend.add",
-        GetFriendsReceived = "user.friends.received.get",
+        Update = "user.update",
         RemoveFriend = "user.friend.remove",
         SetAvatar = "user.avatar.set",
     }

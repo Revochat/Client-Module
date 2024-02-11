@@ -23,8 +23,4 @@ export class User {
     public setAvatar(serverUrl: string, token: string, userId: string, formData: FormData): Promise<string> {
         return UserObject.setAvatar(serverUrl, token, userId, formData, this.options.debug)
     }
-
-    public getFriendsReceived(): Promise<void> {
-        return UserObject.getFriendsReceived(this.socket, this.options.debug)
-    }
 }
