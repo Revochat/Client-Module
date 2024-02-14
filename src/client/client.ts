@@ -29,6 +29,9 @@ export class Client implements Client.Client {
     public user: User;
     public channel: Channel;
     public server: Server;
+    public close: () => void = () => {
+        this.socket.close();
+    }
 
     constructor(options: Client.ClientOptions) {
         this.options = options;
