@@ -8,7 +8,7 @@ describe('register', () => {
     const API_URL = process.env.API_URL
     if(!API_URL) throw new Error("URL is not defined in .env file")
 
-    const USER1_USERNAME = "user1a"
+    const USER1_USERNAME = "user1"
     const USER1_PASSWORD = "password"
 
     it('register user', (done) => {
