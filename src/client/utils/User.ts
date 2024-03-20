@@ -27,4 +27,8 @@ export class User {
     public getChannels(): Promise<void> {
         return UserObject.getChannels(this.socket, this.options.debug)
     }
+
+    public getFriendsList(): Promise<void> {
+        return UserObject.getFriendsList(this.socket, this.options.debug)
+    }
 }

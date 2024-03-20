@@ -85,4 +85,20 @@ export class UserObject {
             });
         });
     }
+
+    static getFriendsList(socket: Socket, debug: boolean = false): Promise<void> {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList.User.GetFriendsList);
+            socket.once(EventList.User.GetFriendsList, (data) => {
+                if(debug) console.log("[DEBUG] USER GET FRIENDS LIST: " + data);
+                if(data.error) return reject(data.error);
+                resolve(data.friends);
+            });
+            
+            socket.once("error", (error) => {
+                if(debug) console.log("[DEBUG] ERROR: " + error)
+                reject(error);
+            });
+        });
+    }
 }
