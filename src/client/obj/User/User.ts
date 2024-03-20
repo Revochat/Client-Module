@@ -69,4 +69,20 @@ export class UserObject {
             }
         });
     }
+
+    static getChannels(socket: Socket, debug: boolean = false): Promise<void> {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList.User.GetChannels);
+            socket.once(EventList.User.GetChannels, (data) => {
+                if(debug) console.log("[DEBUG] USER GET CHANNELS: " + data);
+                if(data.error) return reject(data.error);
+                resolve(data.channels);
+            });
+            
+            socket.once("error", (error) => {
+                if(debug) console.log("[DEBUG] ERROR: " + error)
+                reject(error);
+            });
+        });
+    }
 }

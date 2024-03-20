@@ -10,6 +10,7 @@ export namespace EventList {
         Create = "channel.create",
         Get = "channel.get",
         Join = "channel.join",
+        GetAll = "channel.get.all",
     }
 
     export enum User {
@@ -20,6 +21,7 @@ export namespace EventList {
         Update = "user.update",
         RemoveFriend = "user.friend.remove",
         SetAvatar = "user.avatar.set",
+        GetChannels = "user.channels.get",
     }
 
     export enum Server {

@@ -23,4 +23,8 @@ export class User {
     public setAvatar(serverUrl: string, token: string, userId: string, formData: FormData): Promise<string> {
         return UserObject.setAvatar(serverUrl, token, userId, formData, this.options.debug)
     }
+
+    public getChannels(): Promise<void> {
+        return UserObject.getChannels(this.socket, this.options.debug)
+    }
 }
