@@ -31,4 +31,8 @@ export class User {
     public getFriendsList(): Promise<void> {
         return UserObject.getFriendsList(this.socket, this.options.debug)
     }
+
+    public getFriendsReceivedList(): Promise<void> {
+        return UserObject.GetFriendsReceivedList(this.socket, this.options.debug)
+    }
 }

@@ -101,4 +101,20 @@ export class UserObject {
             });
         });
     }
+
+    static GetFriendsReceivedList(socket: Socket, debug: boolean = false): Promise<void> {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList.User.GetFriendsReceivedList);
+            socket.once(EventList.User.GetFriendsReceivedList, (data) => {
+                if(debug) console.log("[DEBUG] USER GET FRIENDS RECEIVED LIST: " + data);
+                if(data.error) return reject(data.error);
+                resolve(data.friends_received);
+            });
+            
+            socket.once("error", (error) => {
+                if(debug) console.log("[DEBUG] ERROR: " + error)
+                reject(error);
+            });
+        });
+    }
 }
