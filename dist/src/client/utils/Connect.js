@@ -24,7 +24,7 @@ class Connect {
                     console.log("[DEBUG] DISCONNECT");
                 this.socket.removeAllListeners();
                 this.socket.disconnect();
-                reject(EventList_1.EventList.Error.Socket.Disconnected);
+                reject('Socket disconnected');
             });
             this.socket.once("error", (error) => {
                 if (this.options.debug)
@@ -34,7 +34,7 @@ class Connect {
             setTimeout(() => {
                 if (this.socket.connected)
                     return;
-                reject(EventList_1.EventList.Error.Socket.NoConnection);
+                reject("Socket Connexion timeout");
             }, 5000);
         });
     }

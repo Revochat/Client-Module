@@ -9,5 +9,8 @@ class Server {
     create(data) {
         return Server_1.ServerObject.create(this.socket, data);
     }
+    delete(data) {
+        return Server_1.ServerObject.delete(this.socket, data);
+    }
 }
 exports.Server = Server;

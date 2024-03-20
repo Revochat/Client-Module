@@ -4,5 +4,6 @@ export declare class Server {
     private socket;
     constructor(socket: Socket, options: Client.ClientOptions);
     create(data: object): Promise<void>;
+    delete(data: object): Promise<void>;
 }
 //# sourceMappingURL=Server.d.ts.map

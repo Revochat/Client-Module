@@ -50,23 +50,6 @@ class UserObject {
             });
         });
     }
-    static getFriends(socket, debug = false) {
-        return new Promise((resolve, reject) => {
-            socket.emit(EventList_1.EventList.User.GetFriends);
-            socket.once(EventList_1.EventList.User.GetFriends, (data) => {
-                if (debug)
-                    console.log("[DEBUG] USER GET FRIENDS: " + data);
-                if (data.error)
-                    return reject(data.error);
-                resolve();
-            });
-            socket.once("error", (error) => {
-                if (debug)
-                    console.log("[DEBUG] ERROR: " + error);
-                reject(error);
-            });
-        });
-    }
     static uploadFile(serverUrl, token, userId, formData, debug = false) {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             const url = `${serverUrl}/uploads/avatar/${userId}`;
@@ -100,6 +83,40 @@ class UserObject {
                 reject(error);
             }
         }));
+    }
+    static getChannels(socket, debug = false) {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList_1.EventList.User.GetChannels);
+            socket.once(EventList_1.EventList.User.GetChannels, (data) => {
+                if (debug)
+                    console.log("[DEBUG] USER GET CHANNELS: " + data);
+                if (data.error)
+                    return reject(data.error);
+                resolve(data.channels);
+            });
+            socket.once("error", (error) => {
+                if (debug)
+                    console.log("[DEBUG] ERROR: " + error);
+                reject(error);
+            });
+        });
+    }
+    static getFriendsList(socket, debug = false) {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList_1.EventList.User.GetFriendsList);
+            socket.once(EventList_1.EventList.User.GetFriendsList, (data) => {
+                if (debug)
+                    console.log("[DEBUG] USER GET FRIENDS LIST: " + data);
+                if (data.error)
+                    return reject(data.error);
+                resolve(data.friends);
+            });
+            socket.once("error", (error) => {
+                if (debug)
+                    console.log("[DEBUG] ERROR: " + error);
+                reject(error);
+            });
+        });
     }
 }
 exports.UserObject = UserObject;

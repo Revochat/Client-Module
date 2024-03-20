@@ -21,6 +21,7 @@ export declare class Client implements Client.Client {
     user: User;
     channel: Channel;
     server: Server;
+    close: () => void;
     constructor(options: Client.ClientOptions);
     on(event: string, fn: (data: any) => void): void;
     onAny(fn: (event: string, data: any) => void): void;

@@ -16,8 +16,11 @@ class User {
     setAvatar(serverUrl, token, userId, formData) {
         return User_1.UserObject.setAvatar(serverUrl, token, userId, formData, this.options.debug);
     }
-    getFriends() {
-        return User_1.UserObject.getFriends(this.socket, this.options.debug);
+    getChannels() {
+        return User_1.UserObject.getChannels(this.socket, this.options.debug);
+    }
+    getFriendsList() {
+        return User_1.UserObject.getFriendsList(this.socket, this.options.debug);
     }
 }
 exports.User = User;

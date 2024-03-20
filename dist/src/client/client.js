@@ -10,6 +10,9 @@ const Channel_1 = require("./utils/Channel");
 const Server_1 = require("./utils/Server");
 class Client {
     constructor(options) {
+        this.close = () => {
+            this.socket.close();
+        };
         this.options = options;
         this.socket = (0, socket_io_client_1.io)(options.url, { transports: ["websocket"] });
         this.message = new Message_1.Message(this.socket, this.options);

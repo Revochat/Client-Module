@@ -6,89 +6,26 @@ export declare namespace EventList {
     }
     enum Channel {
         Create = "channel.create",
-        Delete = "channel.delete",
-        Error = "channel.error",
         Get = "channel.get",
-        Listen = "channel.listen",
-        Join = "channel.join"
+        Join = "channel.join",
+        GetAll = "channel.get.all"
     }
     enum User {
         Create = "user.create",
-        Delete = "user.delete",
-        Error = "user.error",
         Get = "user.get",
+        GetChannels = "user.channels.get",
+        GetFriends = "user.friends.get",
+        GetFriendsList = "user.friends.list.get",
+        GetFriendRequestsSent = "user.friend.requests.sent.get",
+        GetFriendRequestsReceived = "user.friend.requests.received.get",
         Connect = "user.connect",
         AddFriend = "user.friend.add",
         RemoveFriend = "user.friend.remove",
-        GetFriends = "user.friends.get",
         SetAvatar = "user.avatar.set"
     }
     enum Server {
-        Error = "server.error",
-        Create = "server.create"
-    }
-    namespace Error {
-        enum Message {
-            ChannelNotFound = "Channel Not Found",
-            UserNotFound = "User Not Found",
-            MessageNotFound = "Message Not Found",
-            NotAllowed = "Not Allowed",
-            NotConnected = "Not Connected",
-            NotInChannel = "Not In Channel",
-            NotOwner = "Not Owner",
-            NotFriend = "Not Friend",
-            NotInServer = "Not In Server",
-            NotInGroup = "Not In Group",
-            NotInPrivate = "Not In Private",
-            NotInPublic = "Not In Public",
-            NotInDM = "Not In DM",
-            NotInGuild = "Not In Guild",
-            NotInTeam = "Not In Team",
-            NotInVoice = "Not In Voice",
-            NotInText = "Not In Text",
-            NotInCategory = "Not In Category"
-        }
-        enum Channel {
-            NotFound = "Channel Not Found",
-            NotAllowed = "Not Allowed",
-            NotInChannel = "Not In Channel",
-            NotOwner = "Not Owner"
-        }
-        enum User {
-            NotFriend = "Not Friend",
-            NotInServer = "Not In Server",
-            NotInGroup = "Not In Group",
-            NotInPrivate = "Not In Private",
-            NotInPublic = "Not In Public",
-            NotInDM = "Not In DM",
-            NotInGuild = "Not In Guild",
-            NotInTeam = "Not In Team",
-            NotInVoice = "Not In Voice",
-            NotInText = "Not In Text",
-            NotInCategory = "Not In Category",
-            Blocked = "Blocked",
-            NotBlocked = "Not Blocked",
-            NotAllowed = "Not Allowed",
-            NotConnected = "Not Connected",
-            NotInChannel = "Not In Channel",
-            NotOwner = "Not Owner",
-            NotFound = "User Not Found"
-        }
-        enum Server {
-            NotFound = "Server Not Found",
-            NotAllowed = "Not Allowed",
-            NotInServer = "Not In Server",
-            NotOwner = "Not Owner",
-            NotPermission = "Not Permission"
-        }
-        enum Socket {
-            NotConnected = "Not Connected",
-            NoConnection = "No Connection",
-            NotAllowed = "Not Allowed",
-            Timeout = "Timeout Error",
-            NotPermission = "Not Permission",
-            Disconnected = "Disconnected from server"
-        }
+        Create = "server.create",
+        Delete = "server.delete"
     }
 }
 //# sourceMappingURL=EventList.d.ts.map
