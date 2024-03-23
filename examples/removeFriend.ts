@@ -23,7 +23,7 @@ try {
         console.log("Connected as " + user.username + " (" + user.user_id + ")")
         console.log("You have " + user.friends.length + " friends")
 
-        const usernameToRemove = "thomas"; // ID de l'ami à supprimer
+        const usernameToRemove = "user1"; // ID de l'ami à supprimer
 
         client.user.removeFriend({ username: usernameToRemove }).catch((error) => {
             console.log(error, "Error ")

@@ -118,5 +118,22 @@ class UserObject {
             });
         });
     }
+    static GetFriendsReceivedList(socket, debug = false) {
+        return new Promise((resolve, reject) => {
+            socket.emit(EventList_1.EventList.User.GetFriendsReceivedList);
+            socket.once(EventList_1.EventList.User.GetFriendsReceivedList, (data) => {
+                if (debug)
+                    console.log("[DEBUG] USER GET FRIENDS RECEIVED LIST: " + data);
+                if (data.error)
+                    return reject(data.error);
+                resolve(data.friends_received);
+            });
+            socket.once("error", (error) => {
+                if (debug)
+                    console.log("[DEBUG] ERROR: " + error);
+                reject(error);
+            });
+        });
+    }
 }
 exports.UserObject = UserObject;

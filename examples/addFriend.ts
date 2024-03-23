@@ -20,12 +20,12 @@ try {
     
     client.on(EventList.User.Connect, (user) => {
         if(user.error) return console.log(user.error)
-        console.log(user)
-        console.log("Connected as " + user.username +  " (" + user.user_id + ")")  
-        console.log("You have " + user.friends.length + " friends")
+        // console.log(user)
+        // console.log("Connected as " + user.username +  " (" + user.user_id + ")")  
+        // console.log("You have " + user.friends.length + " friends")
     
-        console.log("Adding friend...")
-        client.user.addFriend({username: "lux"}).catch((error) => {
+        // console.log("Adding friend...")
+        client.user.addFriend({username: "user1"}).catch((error) => {
             console.log(error)
         })
     })
@@ -34,7 +34,11 @@ try {
         if(user.error) return console.log(user.error)
         console.log(user)
     })
-    
+
+    client.on(EventList.User.GetFriendRequestsSent, (user) => {
+        console.log(user)
+    })
+
 } catch (error) {
     console.log(error)
 }

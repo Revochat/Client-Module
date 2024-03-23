@@ -23,6 +23,7 @@ var EventList;
         User["GetChannels"] = "user.channels.get";
         User["GetFriends"] = "user.friends.get";
         User["GetFriendsList"] = "user.friends.list.get";
+        User["GetFriendsReceivedList"] = "user.friends.received.list.get";
         User["GetFriendRequestsSent"] = "user.friend.requests.sent.get";
         User["GetFriendRequestsReceived"] = "user.friend.requests.received.get";
         User["Connect"] = "user.connect";

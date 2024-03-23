@@ -22,5 +22,8 @@ class User {
     getFriendsList() {
         return User_1.UserObject.getFriendsList(this.socket, this.options.debug);
     }
+    getFriendsReceivedList() {
+        return User_1.UserObject.GetFriendsReceivedList(this.socket, this.options.debug);
+    }
 }
 exports.User = User;

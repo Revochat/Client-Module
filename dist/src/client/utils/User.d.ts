@@ -10,5 +10,6 @@ export declare class User {
     setAvatar(serverUrl: string, token: string, userId: string, formData: FormData): Promise<string>;
     getChannels(): Promise<void>;
     getFriendsList(): Promise<void>;
+    getFriendsReceivedList(): Promise<void>;
 }
 //# sourceMappingURL=User.d.ts.map

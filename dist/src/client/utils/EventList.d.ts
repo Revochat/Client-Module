@@ -16,6 +16,7 @@ export declare namespace EventList {
         GetChannels = "user.channels.get",
         GetFriends = "user.friends.get",
         GetFriendsList = "user.friends.list.get",
+        GetFriendsReceivedList = "user.friends.received.list.get",
         GetFriendRequestsSent = "user.friend.requests.sent.get",
         GetFriendRequestsReceived = "user.friend.requests.received.get",
         Connect = "user.connect",
